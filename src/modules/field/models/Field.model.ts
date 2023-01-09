@@ -1,4 +1,3 @@
-import { ObjectId } from "mongodb";
 import { model, Schema } from "mongoose";
 
 interface IFieldModel {
@@ -12,7 +11,7 @@ const FieldScheme = new Schema<IFieldModel>(
   {
     name: { type: String, required: true },
     description: { type: String },
-    typeField: { type: ObjectId, required: true, ref:'TypeField' },
+    typeField: { type: String, required: true },
   },
   { timestamps: true }
 );

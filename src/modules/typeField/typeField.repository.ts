@@ -10,8 +10,8 @@ export default class TypeFieldRepository extends BaseRepository<
     if (x.length != 0) return;
 
     this.model.insertMany([
-      { name: "Rich text" },
-      { name: "Image" },
+      { name: "Rich text", reference: 'PLAIN_TEXT' },
+      { name: "Image", reference: 'IMAGE' },
     ])
       .then((resp) => console.log("type Field sown"))
       .catch((err) => console.error(err));

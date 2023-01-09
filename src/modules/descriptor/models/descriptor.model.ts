@@ -2,7 +2,7 @@ import { ObjectId } from "mongodb";
 import { model, Schema } from "mongoose";
 
 interface IDescriptorModel {
-  id?: string;
+  _id?: string;
   name: string;
   description: string;
   fieldIds: Array<string>;
