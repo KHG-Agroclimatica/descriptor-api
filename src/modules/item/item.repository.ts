@@ -1,4 +1,4 @@
-import BaseRepository from "../../utils/interfaces/baseRepository";
+import BaseRepository from "../../utils/baseRepository";
 import { ItemRequestDTO } from "./dtos/itemRequest.dto";
 import { IItemModel } from "./models/item.model";
 import { IImageModel } from "./models/itemImage.model";

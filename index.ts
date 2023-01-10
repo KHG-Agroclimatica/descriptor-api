@@ -8,6 +8,7 @@ import { connectMongoDB } from "./src/loaders/mongodb.loader";
 import TypeFieldRoutes from "./src/modules/typeField/typeField.routes";
 import DescriptorRoutes from "./src/modules/descriptor/descriptor.routes";
 import ItemRoutes from "./src/modules/item/item.routes";
+import ClassificationRoutes from "./src/modules/classification/classification.routes";
 
 const app = express();
 connectMongoDB();
@@ -19,12 +20,13 @@ app.use("/typeField", new TypeFieldRoutes().routes);
 app.use("/field", new FieldRoutes().routes);
 app.use("/descriptor", new DescriptorRoutes().routes);
 app.use("/descriptor_items", new ItemRoutes().routes);
+app.use("/classification", new ClassificationRoutes().routes);
 
 app.get("/", (req, res) => {
   res.send("hello world");
 });
 
-app.use((err, req, res, next) => {
+app.use((err: any, req: any, res: any, next: any) => {
   res.json([]);
 })
 

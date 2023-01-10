@@ -16,7 +16,8 @@ class FieldService {
         const field : IFieldModel = {
             name: dto.name,
             description: dto.description,
-            typeField: dto.typeField
+            typeField: dto.typeField,
+            classificationId: dto.classificationId
         }
 
         const x =  await this.repository.create(field);

@@ -1,4 +1,4 @@
-import BaseRepository from "../../utils/interfaces/baseRepository";
+import BaseRepository from "../../utils/baseRepository";
 import { IDescriptorModel } from "./models/descriptor.model";
 
 class DescriptorRepository extends BaseRepository<IDescriptorModel> {

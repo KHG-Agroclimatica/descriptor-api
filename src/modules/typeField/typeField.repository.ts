@@ -1,4 +1,4 @@
-import BaseRepository from "../../utils/interfaces/baseRepository";
+import BaseRepository from "../../utils/baseRepository";
 import { ITypeFieldModel } from "./models/typeField.model";
 
 export default class TypeFieldRepository extends BaseRepository<

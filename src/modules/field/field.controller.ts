@@ -14,12 +14,13 @@ class FieldController {
   };
 
   create = async (req: Request, res: Response, next: NextFunction) => {
-    const { name, description, typeField } = JSON.parse(req.body.values);
+    const { name, description, typeField, classificationId } = JSON.parse(req.body.values);
 
     const response = await this._service.create({
       name,
       description,
       typeField,
+      classificationId
     });
     res.json(response);
   };

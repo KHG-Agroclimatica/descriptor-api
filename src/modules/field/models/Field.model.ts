@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import { model, Schema } from "mongoose";
 
 interface IFieldModel {
@@ -5,6 +6,7 @@ interface IFieldModel {
   name: string;
   description?: string;
   typeField: String;
+  classificationId: Array<String>;
 }
 
 const FieldScheme = new Schema<IFieldModel>(
@@ -12,6 +14,7 @@ const FieldScheme = new Schema<IFieldModel>(
     name: { type: String, required: true },
     description: { type: String },
     typeField: { type: String, required: true },
+    classificationId: [{ type: ObjectId, required: true, ref: 'Classification' }],
   },
   { timestamps: true }
 );
