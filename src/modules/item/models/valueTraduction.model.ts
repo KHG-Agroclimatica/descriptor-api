@@ -1,7 +1,7 @@
 import { Schema } from "mongoose";
 
 interface IValueTraductionModel {
-  id?: string;
+  _id?: string;
   languageId: Number;
   countryId: Array<Number>;
   value: string;

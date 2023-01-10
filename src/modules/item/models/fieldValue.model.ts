@@ -5,7 +5,7 @@ import { IValueTraductionModel } from "./valueTraduction.model";
 type TFieldValue = | IValueTraductionModel | IImageModel;
 
 interface IFieldValueModel {
-  id?: string;
+  _id?: string;
   fieldId: string;
   value: Array<TFieldValue>;
 }
