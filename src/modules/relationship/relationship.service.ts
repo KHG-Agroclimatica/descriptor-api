@@ -10,6 +10,6 @@ export class RelationshipService {
     }
   
     async getAll() {
-      const response = await this._repository.findAll();
+      return await this._repository.findAll();
     }
 }
