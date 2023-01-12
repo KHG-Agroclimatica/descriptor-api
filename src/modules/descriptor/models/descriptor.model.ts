@@ -6,7 +6,7 @@ interface IDescriptorModel {
   _id?: string;
   name: string;
   description: string;
-  fieldIds: Array<string> | Array<IFieldModel>;
+  fieldIds: Array<string> & Array<IFieldModel>;
   countryIds: Array<string>;
   classificationId: String;
   isActive: boolean;

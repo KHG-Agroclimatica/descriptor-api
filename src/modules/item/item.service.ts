@@ -55,7 +55,7 @@ class ItemService {
     } 
 
     if (!fieldImages)
-      item.fields?.push({ fieldId: dto.fieldId, value: [newImage] });
+      item.fields?.push({ fieldId: dto.fieldId, value: [newImage], isActive: true });
 
     else {
       if (!dto.imageId)

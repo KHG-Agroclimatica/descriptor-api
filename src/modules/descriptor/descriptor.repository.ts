@@ -1,4 +1,5 @@
 import BaseRepository from "../../utils/baseRepository";
+import { IFieldModel } from "../field/models/Field.model";
 import { IDescriptorModel } from "./models/descriptor.model";
 
 class DescriptorRepository extends BaseRepository<IDescriptorModel> {
@@ -7,7 +8,8 @@ class DescriptorRepository extends BaseRepository<IDescriptorModel> {
     try {
       const result = await this.model.findOne({ _id: id }).populate("fieldIds");
 
-      return result?.fieldIds;
+      const fields = result?.fieldIds.filter((item: IFieldModel) => item.isActive == true);
+      return fields;
     } catch (err) {
       console.log(err);
       return [];

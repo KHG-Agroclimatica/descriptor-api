@@ -29,7 +29,7 @@ class ItemRepository extends BaseRepository<IItemModel> {
       const fieldObject = item.fields?.find(field => field.fieldId == fieldUpdate.fieldId);
 
       if (fieldObject == null) {
-        item.fields?.push({ fieldId: fieldUpdate.fieldId, value: fieldUpdate.value });
+        item.fields?.push({ fieldId: fieldUpdate.fieldId, value: fieldUpdate.value, isActive: true });
       } else {
         fieldObject.value = fieldUpdate.value;
       }

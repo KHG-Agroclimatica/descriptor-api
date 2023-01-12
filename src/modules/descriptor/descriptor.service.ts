@@ -1,4 +1,5 @@
 import DescriptorRepository from "./descriptor.repository";
+import { RegisterDescriptorDTO } from "./dtos/index.dto";
 import { DescriptorModel, IDescriptorModel } from "./models/descriptor.model";
 
 class DescriptorService {
@@ -22,11 +23,7 @@ class DescriptorService {
 
   async create(dto: any) {
     const field: IDescriptorModel = {
-      name: dto.name,
-      description: dto.description,
-      fieldIds: dto.fieldIds,
-      countryIds: dto.countryIds,
-      classificationId: dto.classificationId,
+      ...dto,
       isActive: true,
     };
 
@@ -37,7 +34,7 @@ class DescriptorService {
     return await this.repository.remove({ _id: id });
   }
 
-  async update(id: string, data: any) {
+  async update(id: string, data: RegisterDescriptorDTO) {
     await this.repository.updateOne({ _id: id }, { $set: data });
     return await this.repository.findById(id);
   }
