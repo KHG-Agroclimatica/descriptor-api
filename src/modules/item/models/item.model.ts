@@ -8,6 +8,7 @@ interface IItemModel {
   name: string;
   fields?: Array<IFieldValueModel>;
   countryIds?: Array<String>;
+  isActive: boolean;
 }
 
 const ItemSchema = new Schema<IItemModel>(
@@ -16,12 +17,10 @@ const ItemSchema = new Schema<IItemModel>(
     descriptorId: { type: ObjectId, required: true },
     fields: [{ type: FieldValueSchema }],
     countryIds: [{ type: String }],
+    isActive: { type: Boolean, required: true, default: true },
   },
   { timestamps: true }
 );
 
-const ItemModel = model<IItemModel>(
-  "Item",
-  ItemSchema
-);
+const ItemModel = model<IItemModel>("Item", ItemSchema);
 export { ItemModel, ItemSchema, IItemModel };

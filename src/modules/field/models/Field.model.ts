@@ -7,6 +7,7 @@ interface IFieldModel {
   description?: string;
   typeField: String;
   classificationId: Array<String>;
+  isActive: boolean;
 }
 
 const FieldScheme = new Schema<IFieldModel>(
@@ -14,7 +15,10 @@ const FieldScheme = new Schema<IFieldModel>(
     name: { type: String, required: true },
     description: { type: String },
     typeField: { type: String, required: true },
-    classificationId: [{ type: ObjectId, required: true, ref: 'Classification' }],
+    classificationId: [
+      { type: ObjectId, required: true, ref: "Classification" },
+    ],
+    isActive: { type: Boolean, required: true, default: true },
   },
   { timestamps: true }
 );

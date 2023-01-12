@@ -1,7 +1,6 @@
 import BaseRepository from "../../utils/baseRepository";
 import { ItemRequestDTO } from "./dtos/itemRequest.dto";
 import { IItemModel } from "./models/item.model";
-import { IImageModel } from "./models/itemImage.model";
 
 class ItemRepository extends BaseRepository<IItemModel> {
   async filterByItemIdAndFieldId(itemId: string, fieldId: string) {
@@ -13,6 +12,7 @@ class ItemRepository extends BaseRepository<IItemModel> {
   async filterByDescriptorId(descriptorId: string) {
     return await this.find({
       descriptorId: descriptorId,
+      isActive: true,
     });
   }
 

@@ -16,7 +16,7 @@ class BaseRepository<T> {
   }
 
   async find(filter: FilterQuery<T>, options?: QueryOptions): Promise<T[]> {
-    return await this.model.find(filter, null, options);
+    return await this.model.find({...filter}, null, options);
   }
 
   async findById(id: string) {
@@ -24,7 +24,9 @@ class BaseRepository<T> {
   }
 
   async findAll(): Promise<T[]> {
-    return await this.model.find();
+    return await this.model.find({
+      isActive: true
+    });
   }
 
   async create(doc: object, saveOptions?: SaveOptions): Promise<any> {
@@ -34,7 +36,10 @@ class BaseRepository<T> {
   }
 
   async remove(filter: FilterQuery<T>): Promise<any> {
-    const result = await this.model.deleteOne(filter);
+    // const result = await this.model.deleteOne(filter);
+    const result = await this.model.updateOne(filter, {
+      $set: { isActive: false },
+    });
     return result;
   }
 

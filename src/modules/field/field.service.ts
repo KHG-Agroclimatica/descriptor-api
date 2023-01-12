@@ -17,7 +17,8 @@ class FieldService {
             name: dto.name,
             description: dto.description,
             typeField: dto.typeField,
-            classificationId: dto.classificationId
+            classificationId: dto.classificationId,
+            isActive: true
         }
 
         const x =  await this.repository.create(field);

@@ -26,7 +26,8 @@ class DescriptorService {
       description: dto.description,
       fieldIds: dto.fieldIds,
       countryIds: dto.countryIds,
-      classificationId: dto.classificationId
+      classificationId: dto.classificationId,
+      isActive: true,
     };
 
     return await this.repository.create(field);
