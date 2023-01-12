@@ -10,6 +10,7 @@ interface IDescriptorModel {
   countryIds: Array<string>;
   classificationId: String;
   isActive: boolean;
+  relationshipId: String;
 }
 
 const DescriptorScheme = new Schema<IDescriptorModel>(
@@ -20,6 +21,7 @@ const DescriptorScheme = new Schema<IDescriptorModel>(
     countryIds: [{ type: String, required: true }],
     classificationId: { type: ObjectId, required: true, ref: "Classification" },
     isActive: { type: Boolean, required: true, default: true },
+    relationshipId: { type: ObjectId, required: true },
   },
   { timestamps: true }
 );
