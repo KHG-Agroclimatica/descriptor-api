@@ -15,4 +15,5 @@ export interface ItemRequestDTO {
     name: string;
     fields: Array<ItemFieldDTO>;
     countryIds: Array<String>;
+    referencesIds: Array<number>;
 }

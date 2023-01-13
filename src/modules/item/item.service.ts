@@ -29,6 +29,7 @@ class ItemService {
   }
 
   async create(dto: ItemRequestDTO) {
+    console.log(dto);
     return await this.repository.create(dto);
   }
 

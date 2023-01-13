@@ -9,6 +9,7 @@ interface IItemModel {
   fields?: Array<IFieldValueModel>;
   countryIds?: Array<String>;
   isActive: boolean;
+  referencesIds: Array<Number>;
 }
 
 const ItemSchema = new Schema<IItemModel>(
@@ -18,6 +19,7 @@ const ItemSchema = new Schema<IItemModel>(
     fields: [{ type: FieldValueSchema }],
     countryIds: [{ type: String }],
     isActive: { type: Boolean, required: true, default: true },
+    referencesIds: [{ type: Number }], 
   },
   { timestamps: true }
 );

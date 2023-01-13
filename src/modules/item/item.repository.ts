@@ -24,6 +24,7 @@ class ItemRepository extends BaseRepository<IItemModel> {
 
     item.name = data.name
     item.countryIds = data.countryIds;
+    item.referencesIds = data.referencesIds;
 
     for (const fieldUpdate of data.fields) {
       const fieldObject = item.fields?.find(field => field.fieldId == fieldUpdate.fieldId);
