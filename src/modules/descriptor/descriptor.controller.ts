@@ -26,6 +26,15 @@ class DescriptorController {
     }
   };
 
+  getRelationship = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const response = await this._service.getRelationship(req.params.id);
+      res.json(response);
+    } catch (err) {
+      next(err);
+    }
+  };
+
   getById = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const response = await this._service.getById(req.params.id);

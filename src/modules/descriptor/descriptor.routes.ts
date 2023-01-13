@@ -12,6 +12,7 @@ class DescriptorRoutes {
 
   get routes() {
     router.get("/:id/fields", this._controller.filterFields);
+    router.get("/:id/relationship", this._controller.getRelationship);
     router.get("/:id", this._controller.getById);
     router.get("/", this._controller.getAll);
     router.put("/:id", this._controller.update);

@@ -21,6 +21,10 @@ class DescriptorService {
     return await this.repository.filterFields(id);
   }
 
+  async getRelationship(id: string) {
+    return await this.repository.getRelationship(id);
+  }
+
   async create(dto: any) {
     const field: IDescriptorModel = {
       ...dto,

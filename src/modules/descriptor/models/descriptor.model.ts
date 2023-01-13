@@ -21,7 +21,7 @@ const DescriptorScheme = new Schema<IDescriptorModel>(
     countryIds: [{ type: String, required: true }],
     classificationId: { type: ObjectId, required: true, ref: "Classification" },
     isActive: { type: Boolean, required: true, default: true },
-    relationshipId: { type: ObjectId, required: true },
+    relationshipId: { type: ObjectId, required: true, ref: 'Relationship' },
   },
   { timestamps: true }
 );

@@ -4,12 +4,23 @@ import { IDescriptorModel } from "./models/descriptor.model";
 
 class DescriptorRepository extends BaseRepository<IDescriptorModel> {
   async filterFields(id: string) {
-
     try {
       const result = await this.model.findOne({ _id: id }).populate("fieldIds");
 
-      const fields = result?.fieldIds.filter((item: IFieldModel) => item.isActive == true);
+      const fields = result?.fieldIds.filter(
+        (item: IFieldModel) => item.isActive == true
+      );
       return fields;
+    } catch (err) {
+      console.log(err);
+      return [];
+    }
+  }
+
+  async getRelationship(id: string) {
+    try {
+      const result = await this.model.findById(id).populate("relationshipId");
+      return result?.relationshipId;
     } catch (err) {
       console.log(err);
       return [];
